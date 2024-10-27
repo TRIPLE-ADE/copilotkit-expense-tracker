@@ -6,6 +6,7 @@ import { ExpensesList } from "@/components/ExpenseList";
 import { useExpenseHook } from "@/hooks/use-tasks";
 
 import "@copilotkit/react-ui/styles.css";
+import { INSTRUCTIONS } from "@/constants/instructions";
 
 export default function Home() {
   // Use the custom hook
@@ -19,7 +20,13 @@ export default function Home() {
         expenses={expenses}
         updateExpense={updateExpense}
       />
-      <CopilotPopup />
+      <CopilotPopup
+        instructions={INSTRUCTIONS}
+        labels={{
+          title: "Expense Tracking Financial Assistant",
+          initial: "How can I help you with your Finance Tracking?",
+        }}
+      />
     </div>
   );
 }
